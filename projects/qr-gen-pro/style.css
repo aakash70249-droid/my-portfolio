@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap');
+
+:root {
+    --primary: #6366f1;
+    --bg: #f1f5f9;
+    --card: #ffffff;
+    --text: #1e293b;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Space Grotesk', sans-serif; }
+
+body {
+    background: var(--bg);
+    background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+    background-size: 20px 20px;
+    display: flex; justify-content: center; padding: 20px; min-height: 100vh;
+}
+
+.app-shell { width: 100%; max-width: 420px; }
+
+header { text-align: center; margin-bottom: 30px; }
+.brand { display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--primary); }
+.brand h1 { font-size: 28px; }
+.brand span { color: var(--text); }
+header p { font-size: 14px; color: #64748b; margin-top: 5px; }
+
+.generator-card {
+    background: var(--card);
+    padding: 30px; border-radius: 32px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+    border: 1px solid rgba(255,255,255,0.8);
+}
+
+/* QR Display Area with Scanner Animation */
+.qr-display-area {
+    background: #f8fafc;
+    width: 200px; height: 200px; margin: 0 auto 30px;
+    border-radius: 20px; display: flex; align-items: center;
+    justify-content: center; position: relative;
+    overflow: hidden; border: 2px dashed #e2e8f0;
+}
+
+.qr-box img {
+    width: 160px; height: 160px;
+    animation: zoomIn 0.5s ease;
+}
+
+.scanner-line {
+    position: absolute; width: 100%; height: 2px;
+    background: var(--primary); top: 0;
+    box-shadow: 0 0 15px var(--primary);
+    animation: scan 2s linear infinite;
+}
+
+@keyframes scan {
+    0% { top: 0; }
+    50% { top: 100%; }
+    100% { top: 0; }
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Controls */
+.input-group label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 8px; }
+#qr-text {
+    width: 100%; padding: 15px; border-radius: 12px;
+    border: 2px solid #f1f5f9; outline: none; font-size: 16px; transition: 0.3s;
+}
+#qr-text:focus { border-color: var(--primary); background: #fdfdff; }
+
+.style-options { display: flex; gap: 15px; margin: 20px 0; }
+.opt-box { flex: 1; }
+.opt-box label { font-size: 12px; display: block; margin-bottom: 5px; }
+.opt-box input { width: 100%; height: 40px; border: none; cursor: pointer; background: none; }
+
+.action-buttons { display: flex; flex-direction: column; gap: 10px; }
+.btn {
+    padding: 15px; border: none; border-radius: 15px; font-weight: 700;
+    cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.3s;
+}
+.download { background: var(--primary); color: white; }
+.share { background: #e0e7ff; color: var(--primary); }
+.btn:active { transform: scale(0.95); }
+
+/* History */
+.history-panel { margin-top: 30px; }
+.history-panel h3 { font-size: 16px; margin-bottom: 15px; }
+.history-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip { background: white; padding: 8px 15px; border-radius: 100px; font-size: 12px; border: 1px solid #e2e8f0; }

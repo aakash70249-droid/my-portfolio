@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Expense Pro India</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+
+    <div id="auth-container" class="container">
+        <div class="card auth-card">
+            <h2 id="auth-title">Login</h2>
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="username" placeholder="Username">
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" placeholder="Password">
+            </div>
+            <button class="btn main-btn" onclick="handleAuth()">Submit</button>
+            <p onclick="toggleAuth()" id="auth-toggle">New user? Create an account.</p>
+        </div>
+    </div>
+
+    <div id="main-dashboard" class="container hidden">
+        <header class="app-header">
+            <h3>Hello, <span id="user-display"></span>!</h3>
+            <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i></button>
+        </header>
+
+        <div class="balance-card">
+            <small>Total Expenses</small>
+            <h1 id="total-balance">₹0.00</h1>
+        </div>
+
+        <div class="menu-grid">
+            <button onclick="showSection('add-section')"><i class="fas fa-plus-circle"></i> Add</button>
+            <button onclick="showSection('view-all-section')"><i class="fas fa-history"></i> View All</button>
+            <button onclick="downloadPDF()"><i class="fas fa-file-export"></i> Export PDF</button>
+        </div>
+
+        <div id="add-section" class="card section hidden">
+            <h3 id="form-title">Add New Expense</h3>
+            <input type="hidden" id="edit-id">
+            
+            <label>Category</label>
+            <select id="category" onchange="checkCustomCategory()">
+                <option value="Food">Food & Dining</option>
+                <option value="Travel">Travel/Petrol</option>
+                <option value="Rent">Rent & Bills</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Custom">Other (Custom)</option>
+            </select>
+            
+            <input type="text" id="custom-cat" placeholder="Enter custom category" class="hidden">
+            
+            <label>Amount (₹)</label>
+            <input type="number" id="amount" placeholder="e.g. 500">
+            
+            <button id="save-btn" class="btn save-btn" onclick="saveExpense()">Save Expense</button>
+            <button id="cancel-btn" class="btn cancel-btn hidden" onclick="cancelEdit()">Cancel Edit</button>
+        </div>
+
+        <div id="view-all-section" class="card section hidden">
+            <div class="section-header">
+                <h3>Transactions</h3>
+                <span id="warning-msg" class="warning"></span>
+            </div>
+            <ul id="full-history-list"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

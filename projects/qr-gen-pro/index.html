@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR-Gen Pro | Instant Branding</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="app-shell">
+        <header>
+            <div class="brand">
+                <i class="fas fa-qrcode"></i>
+                <h1>QR-Gen<span>Pro</span></h1>
+            </div>
+            <p>Generate high-quality QR codes instantly</p>
+        </header>
+
+        <main class="generator-card">
+            <div class="qr-display-area">
+                <div id="qrcode-container" class="qr-box">
+                    </div>
+                <div id="scan-anim" class="scanner-line"></div>
+            </div>
+
+            <div class="controls">
+                <div class="input-group">
+                    <label>Website URL or Text</label>
+                    <input type="text" id="qr-text" placeholder="https://yourlink.com" oninput="generateQR()">
+                </div>
+
+                <div class="style-options">
+                    <div class="opt-box">
+                        <label>QR Color</label>
+                        <input type="color" id="fg-color" value="#0f172a" oninput="generateQR()">
+                    </div>
+                    <div class="opt-box">
+                        <label>Background</label>
+                        <input type="color" id="bg-color" value="#ffffff" oninput="generateQR()">
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn download" onclick="downloadQR()">
+                        <i class="fas fa-download"></i> Download PNG
+                    </button>
+                    <button class="btn share" onclick="copyQR()">
+                        <i class="fas fa-copy"></i> Copy Link
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="history-panel">
+            <h3>Recent Generations</h3>
+            <div id="qr-history" class="history-chips">
+                </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASPortfolio </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="fas fa-code"></i> <span>ASPortfolio</span>
+        </div>
+        <div class="header-right">
+            <span class="status-dot"></span> Available for Projects
+        </div>
+    </header>
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <div class="menu-group">
+                <h3>Main Menu</h3>
+                <ul>
+                    <li><a href="#" onclick="loadProject('welcome.html')" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                </ul>
+            </div>
+
+            <div class="menu-group">
+                <h3>Live Projects</h3>
+                <ul>
+                    <li><a href="#" onclick="loadProject('projects/expense-tracker/index.html')"><i class="fas fa-wallet"></i> Expense Tracker</a></li>
+                    <li><a href="#" onclick="loadProject('projects/fitness-tracker/index.html')"><i class="fas fa-heartbeat"></i> FitTrack Pro</a></li>
+                    <li><a href="#" onclick="loadProject('projects/todo-list/index.html')"><i class="fas fa-tasks"></i> Task Manager</a></li>
+                    <li><a href="#" onclick="loadProject('projects/medflow/index.html')"><i class="fas fa-clinic-medical"></i> MedFlow System</a></li>
+                    <li><a href="#" onclick="loadProject('projects/qr-gen-pro/index.html')"><i class="fas fa-qrcode"></i> Qr-Gen Pro</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-footer">
+                <p>© 2026 AAKASH SHARMA</p>
+            </div>
+        </aside>
+
+        <main class="display-area">
+            <div class="frame-wrapper">
+                <iframe id="projectFrame" src="welcome.html" frameborder="0"></iframe>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function loadProject(url) {
+            document.getElementById('projectFrame').src = url;
+            // Active link highlight logic
+            event.preventDefault();
+            const links = document.querySelectorAll('.sidebar a');
+            links.forEach(link => link.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>

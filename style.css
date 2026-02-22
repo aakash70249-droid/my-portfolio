@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #f4f7fe; /* Light blue-ish grey background */
+    color: #2d3436;
+}
+
+/* Header */
+header {
+    height: 70px;
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.logo {
+    font-size: 22px; font-weight: 600; color: #4361ee;
+    display: flex; align-items: center; gap: 10px;
+}
+
+.header-right {
+    font-size: 14px; font-weight: 500; color: #636e72;
+    display: flex; align-items: center; gap: 8px;
+}
+
+.status-dot {
+    height: 10px; width: 10px; background: #2ecc71;
+    border-radius: 50%; display: inline-block;
+}
+
+/* Layout */
+.main-container { display: flex; height: calc(100vh - 70px); }
+
+/* Sidebar */
+.sidebar {
+    width: 280px; background: #ffffff;
+    padding: 30px 20px; display: flex; flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-group h3 {
+    font-size: 12px; color: #b2bec3; text-transform: uppercase;
+    margin: 20px 0 15px 10px; letter-spacing: 1px;
+}
+
+.sidebar ul { list-style: none; }
+
+.sidebar a {
+    text-decoration: none; color: #636e72;
+    padding: 12px 15px; display: flex; align-items: center; gap: 12px;
+    border-radius: 10px; margin-bottom: 5px;
+    transition: 0.3s; font-weight: 500;
+}
+
+.sidebar a i { width: 20px; font-size: 18px; }
+
+.sidebar a:hover, .sidebar a.active {
+    background: #4361ee; color: #fff;
+    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+}
+
+/* Main Display Area */
+.display-area {
+    flex-grow: 1; padding: 30px;
+    background: #f4f7fe;
+}
+
+.frame-wrapper {
+    width: 100%; height: 100%;
+    background: #fff; border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+    border: 1px solid #e0e0e0;
+}
+
+iframe { width: 100%; height: 100%; border: none; }
+
+.sidebar-footer { font-size: 12px; color: #b2bec3; text-align: center; }
+
+/* --- Mobile Responsiveness (Phone ke liye) --- */
+
+@media (max-width: 768px) {
+    /* Mobile par Header thoda chhota ho jaye */
+    header {
+        padding: 0 15px;
+        font-size: 14px;
+    }
+
+    /* Layout ko column mein badal dein (Sidebar upar, Project niche) */
+    .main-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    /* Sidebar ki width full kar dein aur height kam */
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .sidebar h3 {
+        margin: 10px 0 10px 0;
+    }
+
+    /* Menu items ko ek line mein ya grid mein dikhayein */
+    .sidebar ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .sidebar li {
+        margin-bottom: 0;
+        flex: 1 1 calc(50% - 10px); /* Ek line mein do buttons */
+    }
+
+    .sidebar a {
+        font-size: 13px;
+        padding: 10px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    /* Project area ki height mobile par set karein */
+    .display-area {
+        height: 500px; /* Mobile par itni height kaafi hai */
+        padding: 15px;
+    }
+
+    .frame-wrapper {
+        border-radius: 10px;
+    }
+}

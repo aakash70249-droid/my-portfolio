@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTrack Pro | Health Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-shell">
+        <header>
+            <h1>FitTrack<span>Pro</span></h1>
+            <p id="today-date"></p>
+        </header>
+
+        <div class="glass-card main-input">
+            <div class="toggle-group">
+                <button class="tgl-btn active" id="btn-male" onclick="setGender('male')">Male</button>
+                <button class="tgl-btn" id="btn-female" onclick="setGender('female')">Female</button>
+            </div>
+
+            <div class="input-row">
+                <div class="input-box">
+                    <label>Age</label>
+                    <input type="number" id="age" placeholder="yrs">
+                </div>
+                <div class="input-box">
+                    <label>Weight (kg)</label>
+                    <input type="number" id="weight" placeholder="kg">
+                </div>
+                <div class="input-box">
+                    <label>Height (cm)</label>
+                    <input type="number" id="height" placeholder="cm">
+                </div>
+            </div>
+
+            <button class="calc-btn" onclick="calculateAll()">Calculate Health Score</button>
+        </div>
+
+        <div id="result-section" class="hidden">
+            <div class="glass-card gauge-container">
+                <div class="gauge-meter">
+                    <div class="gauge-arrow" id="arrow"></div>
+                </div>
+                <div class="score-labels">
+                    <h2 id="bmi-val">00.0</h2>
+                    <p id="health-status">Normal</p>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="glass-card stat-item">
+                    <i class="fas fa-fire"></i>
+                    <small>Daily BMR</small>
+                    <h3 id="bmr-val">0 kcal</h3>
+                </div>
+                <div class="glass-card stat-item">
+                    <i class="fas fa-bullseye"></i>
+                    <small>Ideal Weight</small>
+                    <h3 id="ideal-val">0 kg</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="history-section">
+            <h3>Recent Activity</h3>
+            <div id="history-list">
+                </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

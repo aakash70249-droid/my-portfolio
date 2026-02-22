@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedFlow | Pro Dispensary System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="main-header">
+            <div class="logo">
+                <i class="fas fa-microscope"></i>
+                <h1>Med<span>Flow</span></h1>
+            </div>
+            <div class="mode-toggle">
+                <button id="doc-view-btn" class="active" onclick="switchView('doctor')">Doctor Side</button>
+                <button id="pharm-view-btn" onclick="switchView('pharmacy')">Pharmacy <span id="notif-badge" class="hidden">0</span></button>
+            </div>
+        </header>
+
+        <section id="doctor-panel" class="panel">
+            <div class="glass-card">
+                <div class="card-header">
+                    <h3><i class="fas fa-user-md"></i> Patient Prescription</h3>
+                </div>
+                
+                <div class="input-group">
+                    <label>Patient Full Name</label>
+                    <input type="text" id="p-name" placeholder="Enter patient name">
+                </div>
+                
+                <div class="medicine-adder">
+                    <div class="custom-toggle">
+                        <label>
+                            <input type="checkbox" id="custom-check" onclick="toggleCustomInput()"> 
+                            Add Custom Medicine Name?
+                        </label>
+                    </div>
+                    
+                    <div class="input-row">
+                        <select id="med-select">
+                            <option value="">Choose Med...</option>
+                            <option value="Paracetamol">Paracetamol</option>
+                            <option value="Amoxicillin">Amoxicillin</option>
+                            <option value="Cetirizine">Cetirizine</option>
+                            <option value="Ibuprofen">Ibuprofen</option>
+                        </select>
+                        <input type="text" id="custom-med-name" class="hidden" placeholder="Type med name">
+                        <input type="text" id="med-dose" placeholder="Dose (1-0-1)">
+                    </div>
+                    <button class="add-med-btn" onclick="addToList()"><i class="fas fa-plus"></i> Add to Slip</button>
+                </div>
+
+                <ul id="current-list" class="med-list"></ul>
+
+                <button class="send-btn" onclick="generateToken()">
+                    <i class="fas fa-paper-plane"></i> Send to Pharmacy
+                </button>
+            </div>
+        </section>
+
+        <section id="pharmacy-panel" class="panel hidden">
+            <div class="pharmacy-header">
+                <h3><i class="fas fa-receipt"></i> Incoming Orders</h3>
+            </div>
+            <div id="order-container" class="orders-grid">
+                </div>
+        </section>
+
+        <div id="token-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+                <h2>Prescription Sent</h2>
+                <div class="token-display" id="token-number">#0000</div>
+                <p>Patient Token Number generated successfully.</p>
+                <button class="close-btn" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

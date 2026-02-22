@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMaster Pro | Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="user-info">
+                <h1>Daily Productivity</h1>
+                <p id="date-now"></p>
+            </div>
+            <div class="progress-box">
+                <svg class="progress-ring" width="60" height="60">
+                    <circle class="progress-ring__circle" stroke="#4361ee" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
+                </svg>
+                <span id="stat-number">0%</span>
+            </div>
+        </header>
+
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" id="search-input" placeholder="Search tasks..." onkeyup="renderTasks()">
+        </div>
+
+        <div class="input-card">
+            <input type="text" id="task-input" placeholder="Add a new task...">
+            <div class="input-details">
+                <select id="priority-input">
+                    <option value="high">🔥 High</option>
+                    <option value="medium">⚡ Medium</option>
+                    <option value="low">🌱 Low</option>
+                </select>
+                <input type="date" id="date-input">
+                <button onclick="addTask()" class="add-btn"><i class="fas fa-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="filter-row">
+            <button class="chip active" onclick="setFilter('all')">All</button>
+            <button class="chip" onclick="setFilter('pending')">Pending</button>
+            <button class="chip" onclick="setFilter('completed')">Completed</button>
+        </div>
+
+        <div class="list-wrapper">
+            <ul id="task-list"></ul>
+        </div>
+    </div>
+
+    <div id="edit-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Update Task</h3>
+            <input type="text" id="edit-text">
+            <div class="modal-actions">
+                <button class="btn-save" onclick="saveUpdate()">Update</button>
+                <button class="btn-close" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
