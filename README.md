@@ -3,7 +3,7 @@
 Welcome to my professional portfolio! This repository showcases a collection of 5+ high-end web applications built with a focus on UI/UX, mobile responsiveness, and clean JavaScript logic.
 
 ## 🔗 Live Demo
-[**Click here to view my Live Portfolio**](https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/)
+[**Click here to view my Live Portfolio**](https://aakash70249-droid.github.io/my-portfolio/)
 *(Note: Replace YOUR-USERNAME and YOUR-REPO-NAME with your actual GitHub link)*
 
 ---
